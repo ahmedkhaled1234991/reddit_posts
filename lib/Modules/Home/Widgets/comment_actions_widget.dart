@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../../../Models/comment_model.dart';
 import 'delete_dialog.dart';
 
 class CommentActionsWidget {
-  Future showCommentActionsBottomSheet(BuildContext context, int index) {
+  Future showCommentActionsBottomSheet(BuildContext context, int index,
+      CommentActionsModel commentActionsModel) {
     return showModalBottomSheet(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),
@@ -59,6 +61,8 @@ class CommentActionsWidget {
                     builder: (BuildContext context) {
                       return DeleteDialog(
                         index: index,
+                        onDeleteConfirmed:
+                            commentActionsModel.onDeleteConfirmed,
                       );
                     },
                   );

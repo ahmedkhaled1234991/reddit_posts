@@ -4,9 +4,11 @@ import 'package:mvc_pattern/mvc_pattern.dart';
 import '../home_controller.dart';
 
 class DeleteDialog extends StatefulWidget {
+  final Function(int) onDeleteConfirmed;
   final int index;
 
-  const DeleteDialog({super.key, required this.index});
+  const DeleteDialog(
+      {super.key, required this.index, required this.onDeleteConfirmed});
 
   @override
   _DeleteDialogState createState() => _DeleteDialogState();
@@ -57,7 +59,7 @@ class _DeleteDialogState extends StateMVC<DeleteDialog> {
             ),
           ),
           onPressed: () {
-            con.deleteComment(widget.index);
+            widget.onDeleteConfirmed(widget.index);
             Navigator.pop(context);
           },
           child: const Text(

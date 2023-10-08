@@ -4,6 +4,7 @@ class CommentModel {
   String commentText;
   int voteCommentCount;
   int index = 0;
+  CommentActionsModel? commentActionsModel;
 
   CommentModel({
     this.commentIsUpVoted = false,
@@ -11,5 +12,13 @@ class CommentModel {
     this.voteCommentCount = 1,
     required this.commentText,
     required this.index,
-  });
+    CommentActionsModel? commentActionsModel,
+  }) : commentActionsModel = commentActionsModel ?? CommentActionsModel();
+}
+
+class CommentActionsModel {
+  final Function(int) onDeleteConfirmed;
+
+  CommentActionsModel({Function(int)? onDeleteConfirmed})
+      : onDeleteConfirmed = onDeleteConfirmed ?? ((index) {});
 }

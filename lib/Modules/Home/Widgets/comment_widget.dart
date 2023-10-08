@@ -89,7 +89,9 @@ class _CommentWidgetState extends StateMVC<CommentWidget> {
                           onPressed: () {
                             CommentActionsWidget()
                                 .showCommentActionsBottomSheet(
-                                    context, widget.commentModel.index);
+                                    context,
+                                    widget.commentModel.index,
+                                    widget.commentModel.commentActionsModel!);
                           },
                           icon: const Icon(
                             Icons.more_horiz,

@@ -140,6 +140,8 @@ class HomeController extends ControllerMVC {
   }
 
   void deleteComment(int index) {
-    commentsList.removeAt(index);
+    setState(() {
+      commentsList.removeAt(index);
+    });
   }
 }

@@ -101,7 +101,7 @@ class _ActionsWidgetState extends StateMVC<ActionsWidget> {
                     const SizedBox(height: 8),
                     IconButton(
                       padding: EdgeInsets.zero,
-                      onPressed: () {
+                      onPressed: () async {
                         con.toggleComments(context);
                         showModalBottomSheet(
                           shape: RoundedRectangleBorder(
